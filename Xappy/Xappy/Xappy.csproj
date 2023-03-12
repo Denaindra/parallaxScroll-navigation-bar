@@ -40,10 +40,7 @@
     <Folder Include="Domain\Global\" />
     <Folder Include="Content\Scenarios\ToDo\" />
     <Folder Include="Content\About\" />
-    <Folder Include="Content\Scenarios\OtherLogin\Controls\" />
-    <Folder Include="Content\Scenarios\Login\" />
     <Folder Include="Resources\Fonts\" />
-    <Folder Include="Content\Scenarios\Onboarding\" />
     <Folder Include="Interface\" />
   </ItemGroup>
   <ItemGroup>
@@ -51,16 +48,7 @@
     <Compile Update="Content\ControlGallery\ControlTemplates\Button.xaml.cs">
       <DependentUpon>ButtonControlTemplate.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Content\Scenarios\Conversation\ConversationPage.xaml.cs">
-      <DependentUpon>ConversationPage.xaml</DependentUpon>
-    </Compile>
     <Compile Remove="Content\ControlGallery\ProppyControls\BasePropertyControl.cs" />
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Content\Scenarios\PhotoGallery\IndexPage.xaml.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Update="Content\Scenarios\Onboarding\IndexPage.xaml.cs">
-      <DependentUpon>IndexPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Content\ControlGallery\ControlTemplates\ButtonControlTemplate.xaml">
@@ -182,9 +170,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Content\Common\FlyoutItemTemplate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Content\Scenarios\PhotoGallery\IndexPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
