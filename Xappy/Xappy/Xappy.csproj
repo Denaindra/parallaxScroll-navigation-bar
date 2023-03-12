@@ -33,44 +33,14 @@
   </ItemGroup>
   
   <ItemGroup>
-    <Folder Include="Content\ControlGallery\" />
-    <Folder Include="Content\LatestNews\" />
-    <Folder Include="Content\ControlGallery\ProppyControls\" />
     <Folder Include="Behaviors\" />
     <Folder Include="Domain\Global\" />
-    <Folder Include="Content\Scenarios\ToDo\" />
-    <Folder Include="Content\About\" />
     <Folder Include="Resources\Fonts\" />
     <Folder Include="Interface\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ApiConstants.cs" />
-    <Compile Update="Content\ControlGallery\ControlTemplates\Button.xaml.cs">
-      <DependentUpon>ButtonControlTemplate.xaml</DependentUpon>
-    </Compile>
     <Compile Remove="Content\ControlGallery\ProppyControls\BasePropertyControl.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Content\ControlGallery\ControlTemplates\ButtonControlTemplate.xaml">
-      <SubType>Designer</SubType>
-      <Generator></Generator>
-    </Page>
-    <Page Include="Content\ControlGallery\ProppyControls\MarginProperty.xaml">
-      <SubType>Designer</SubType>
-      <Generator></Generator>
-    </Page>
-    <Page Include="Content\ControlGallery\ProppyControls\PaddingProperty.xaml">
-      <SubType>Designer</SubType>
-      <Generator></Generator>
-    </Page>
-    <Page Include="Content\ControlGallery\ProppyControls\TextEntry.xaml">
-      <SubType>Designer</SubType>
-      <Generator></Generator>
-    </Page>
-    <Page Include="Content\ControlGallery\ProppyControls\Toolbar.xaml">
-      <SubType>Designer</SubType>
-      <Generator></Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AppVersionInfo.json" />
@@ -164,25 +134,6 @@
     <SharedImage Include="Resources\Images\on02.png" BaseSize="414,896" />
     <SharedImage Include="Resources\Images\on03.png" BaseSize="414,896" />
     <SharedImage Include="Resources\Images\on01.png" BaseSize="414,896" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Content\Common\FlyoutFooterTemplate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Content\Common\FlyoutItemTemplate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Content\Common\FlyoutFooterTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
-    <None Update="Content\Common\FlyoutHeaderTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
-    <None Update="Content\Common\FlyoutItemTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
   </ItemGroup>
   <Import Project="..\ApiConstants.targets" />
 </Project>

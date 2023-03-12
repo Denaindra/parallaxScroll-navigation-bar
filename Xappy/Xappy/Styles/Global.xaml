@@ -3,7 +3,7 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:local="clr-namespace:Xappy"
-                    xmlns:common="clr-namespace:Xappy.Content.Common"
+        
                     xmlns:converters="clr-namespace:Xappy.Converters;assembly=Xappy">
 
     <!-- COLORS -->
@@ -124,7 +124,7 @@
                 Value="False"/>
     </Style>
 
-    <Style TargetType="Shell" ApplyToDerivedTypes="True">
+    <!--<Style TargetType="Shell" ApplyToDerivedTypes="True">
         <Setter Property="FlyoutHeaderTemplate"
                 Value="{DataTemplate common:FlyoutHeaderTemplate}"/>
         <Setter Property="FlyoutFooterTemplate"
@@ -132,7 +132,7 @@
         <Setter Property="ItemTemplate"
                 Value="{DataTemplate common:FlyoutItemTemplate}"/>
         <Setter Property="Shell.FlyoutBehavior" Value="{OnIdiom Tablet=Locked, Desktop=Locked, Default=Flyout}"/>
-    </Style>
+    </Style>-->
 
     <Style BasedOn="{StaticResource BaseStyle}"
            ApplyToDerivedTypes="True"

@@ -5,10 +5,6 @@
     xmlns:local="clr-namespace:Xappy"
     xmlns:common="clr-namespace:Xappy.Content.Common"
     xmlns:scenarios="clr-namespace:Xappy.Scenarios"
-    xmlns:blog="clr-namespace:Xappy.Content.Blog"
-    xmlns:about="clr-namespace:Xappy.About"
-    xmlns:controlGallery="clr-namespace:Xappy.ControlGallery"
-    xmlns:photoGallery="clr-namespace:Xappy.Content.Scenarios.PhotoGallery"
     xmlns:working="clr-namespace:Xappy.Content.Scenarios.ProductDetails"
     xmlns:settings="clr-namespace:Xappy.Content.Settings"
     xmlns:todo="clr-namespace:Xappy.Content.Scenarios.ToDo"
@@ -19,35 +15,6 @@
     <FlyoutItem Title="Working File" Icon="{StaticResource IconWorkingFile}">
         <ShellContent ContentTemplate="{DataTemplate settings:StyleGuidePage}" />
     </FlyoutItem>
-    
-    <FlyoutItem Title="Latest News" Icon="{StaticResource IconLatestNews}">
-        <ShellContent
-                ContentTemplate="{DataTemplate blog:IndexPage}" />
-    </FlyoutItem>
-    
-    <FlyoutItem Title="UI Controls" Icon="{StaticResource IconControls}">
-        <ShellContent
-                ContentTemplate="{DataTemplate controlGallery:IndexPage}" />
-    </FlyoutItem>
-    
-    <FlyoutItem Title="Scenarios"
-                Icon="{StaticResource IconScenarios}">
-        <ShellContent
-                ContentTemplate="{DataTemplate scenarios:IndexPage}" />
-    </FlyoutItem>
-    
-    <FlyoutItem Title="Resources"
-                Icon="{StaticResource IconResources}">
-        <ShellContent
-                ContentTemplate="{DataTemplate resources:IndexPage}" />
-    </FlyoutItem>
-    
-    <FlyoutItem Title="About"
-                Icon="{StaticResource IconAbout}">
-        <ShellContent Title="General"
-                          ContentTemplate="{DataTemplate about:IndexPage}" />
-        <ShellContent Title="Contributors"
-                          ContentTemplate="{DataTemplate about:GitHubPage}" />
-    </FlyoutItem>
+   
 
 </Shell>
