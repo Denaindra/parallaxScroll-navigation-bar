@@ -33,8 +33,6 @@
   </ItemGroup>
   
   <ItemGroup>
-    <Folder Include="Behaviors\" />
-    <Folder Include="Domain\Global\" />
     <Folder Include="Resources\Fonts\" />
     <Folder Include="Interface\" />
   </ItemGroup>

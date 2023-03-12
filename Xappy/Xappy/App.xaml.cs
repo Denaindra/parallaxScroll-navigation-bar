@@ -1,8 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xappy.Content.Settings;
-using Xappy.Domain.Global;
+
 
 namespace Xappy
 {
@@ -20,7 +19,7 @@ namespace Xappy
         {
             InitializeComponent();
 
-            DependencyService.Register<AppModel>();
+           // DependencyService.Register<AppModel>();
 
             MainPage = new Content.Scenarios.ProductDetails.ProductDetailsPage();
         }

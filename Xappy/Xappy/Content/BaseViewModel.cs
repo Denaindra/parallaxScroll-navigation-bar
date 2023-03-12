@@ -5,14 +5,11 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Xappy.Domain.Global;
 
 namespace Xappy.Content
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public AppModel AppModel { get; set; } = DependencyService.Resolve<AppModel>();
-
         bool isBusy = false;
         public bool IsBusy
         {

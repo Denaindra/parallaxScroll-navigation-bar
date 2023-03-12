@@ -2,9 +2,7 @@
 
 using Xappy.Content.Scenarios.ProductDetails;
 
-using Xappy.Content.Settings;
 
-using Xappy.Scenarios;
 
 namespace Xappy
 {
@@ -26,7 +24,6 @@ namespace Xappy
            // Routing.RegisterRoute("todo", typeof(ItemsPage));
             //Routing.RegisterRoute("conversation", typeof(ConversationPage));
             Routing.RegisterRoute("productdetails", typeof(ProductDetailsPage));
-            Routing.RegisterRoute("settings", typeof(SettingsPage));
 
             // ToDo
            // Routing.RegisterRoute("add", typeof(NewItemPage));

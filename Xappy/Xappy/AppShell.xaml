@@ -2,19 +2,10 @@
 <Shell
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Xappy"
-    xmlns:common="clr-namespace:Xappy.Content.Common"
-    xmlns:scenarios="clr-namespace:Xappy.Scenarios"
-    xmlns:working="clr-namespace:Xappy.Content.Scenarios.ProductDetails"
     xmlns:settings="clr-namespace:Xappy.Content.Settings"
-    xmlns:todo="clr-namespace:Xappy.Content.Scenarios.ToDo"
-    xmlns:onboarding="clr-namespace:Xappy.Content.Scenarios.Onboarding"
-    xmlns:resources="clr-namespace:Xappy.Content.Resources" 
+
     x:Class="Xappy.AppShell">
     
-    <FlyoutItem Title="Working File" Icon="{StaticResource IconWorkingFile}">
-        <ShellContent ContentTemplate="{DataTemplate settings:StyleGuidePage}" />
-    </FlyoutItem>
-   
+
 
 </Shell>
