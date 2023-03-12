@@ -1,0 +1,203 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceAssemblyReference>true</ProduceAssemblyReference>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="5.0.0.2012" />
+    
+    <PackageReference Include="Octokit" Version="0.48.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.0.8" />
+    
+    <PackageReference Include="Xamanimation" Version="1.3.0" />
+    <PackageReference Include="System.ServiceModel.Syndication" Version="5.0.0" />
+    <PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="5.0.2" />
+    <PackageReference Include="Xamarin.Forms.DualScreen" Version="5.0.0.2012" />
+    <PackageReference Include="Resizetizer.NT" Version="0.2.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Content\ControlGallery\" />
+    <Folder Include="Content\LatestNews\" />
+    <Folder Include="Content\ControlGallery\ProppyControls\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="Domain\Global\" />
+    <Folder Include="Content\Scenarios\ToDo\" />
+    <Folder Include="Content\About\" />
+    <Folder Include="Content\Scenarios\OtherLogin\Controls\" />
+    <Folder Include="Content\Scenarios\Login\" />
+    <Folder Include="Resources\Fonts\" />
+    <Folder Include="Content\Scenarios\Onboarding\" />
+    <Folder Include="Interface\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ApiConstants.cs" />
+    <Compile Update="Content\ControlGallery\ControlTemplates\Button.xaml.cs">
+      <DependentUpon>ButtonControlTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Content\Scenarios\Conversation\ConversationPage.xaml.cs">
+      <DependentUpon>ConversationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Remove="Content\ControlGallery\ProppyControls\BasePropertyControl.cs" />
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Content\Scenarios\PhotoGallery\IndexPage.xaml.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="Content\Scenarios\Onboarding\IndexPage.xaml.cs">
+      <DependentUpon>IndexPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Content\ControlGallery\ControlTemplates\ButtonControlTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+    <Page Include="Content\ControlGallery\ProppyControls\MarginProperty.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+    <Page Include="Content\ControlGallery\ProppyControls\PaddingProperty.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+    <Page Include="Content\ControlGallery\ProppyControls\TextEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+    <Page Include="Content\ControlGallery\ProppyControls\Toolbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppVersionInfo.json" />
+    <EmbeddedResource Include="Resources\Fonts\FabMDL2.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\fa-solid-900.ttf" />
+    <EmbeddedResource Include="Resources\Images\guitar1.jpg" />
+    <EmbeddedResource Include="Resources\Images\guitar2.jpg" />
+    <EmbeddedResource Include="Resources\Images\guitar3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="AppVersionInfo.json" />
+    <None Remove="Resources\Fonts\FabMDL2.ttf" />
+    <None Remove="Resources\Fonts\fa-solid-900.ttf" />
+    <None Remove="Resources\Images\menu.png" />
+    <None Remove="Resources\Images\toolbox\cell_entrycell.png" />
+    <None Remove="Resources\Images\toolbox\cell_imagecell.png" />
+    <None Remove="Resources\Images\toolbox\cell_switchcell.png" />
+    <None Remove="Resources\Images\toolbox\cell_textcell.png" />
+    <None Remove="Resources\Images\toolbox\cell_viewcell.png" />
+    <None Remove="Resources\Images\toolbox\layout_absolutelayout.png" />
+    <None Remove="Resources\Images\toolbox\layout_contentview.png" />
+    <None Remove="Resources\Images\toolbox\layout_flexlayout.png" />
+    <None Remove="Resources\Images\toolbox\layout_frame.png" />
+    <None Remove="Resources\Images\toolbox\layout_grid.png" />
+    <None Remove="Resources\Images\toolbox\layout_relativelayout.png" />
+    <None Remove="Resources\Images\toolbox\layout_scrollview.png" />
+    <None Remove="Resources\Images\toolbox\layout_stacklayout.png" />
+    <None Remove="Resources\Images\on02.png" />
+    <None Remove="Resources\Images\on03.png" />
+    <None Remove="Resources\Images\on01.png" />
+    <None Remove="Resources\Images\toolbox\view_activityindicator.png" />
+    <None Remove="Resources\Images\toolbox\view_boxview.png" />
+    <None Remove="Resources\Images\toolbox\view_button.png" />
+    <None Remove="Resources\Images\toolbox\view_datepicker.png" />
+    <None Remove="Resources\Images\toolbox\view_editor.png" />
+    <None Remove="Resources\Images\toolbox\view_entry.png" />
+    <None Remove="Resources\Images\toolbox\view_image.png" />
+    <None Remove="Resources\Images\toolbox\view_label.png" />
+    <None Remove="Resources\Images\toolbox\view_listview.png" />
+    <None Remove="Resources\Images\toolbox\view_map.png" />
+    <None Remove="Resources\Images\toolbox\view_picker.png" />
+    <None Remove="Resources\Images\toolbox\view_progressbar.png" />
+    <None Remove="Resources\Images\toolbox\view_searchbar.png" />
+    <None Remove="Resources\Images\toolbox\view_slider.png" />
+    <None Remove="Resources\Images\toolbox\view_stepper.png" />
+    <None Remove="Resources\Images\toolbox\view_switch.png" />
+    <None Remove="Resources\Images\toolbox\view_tableview.png" />
+    <None Remove="Resources\Images\toolbox\view_timepicker.png" />
+    <None Remove="Resources\Images\toolbox\view_webview.png" />
+    <None Remove="Interface\" />
+  </ItemGroup>
+  <ItemGroup>
+      <SharedImage Include="Resources\Images\guitar1.jpg" />
+      <SharedImage Include="Resources\Images\guitar2.jpg" />
+    <SharedImage Include="Resources\Images\guitar3.jpg" />
+    <None Remove="Resources\Images\xamarin-forms-ui.svg" />
+    <SharedImage Include="Resources\Images\menu.png" />
+    <SharedImage Include="Resources\Images\xamarin-forms-ui.svg" />
+    <SharedImage Include="Resources\Images\toolbox\layout_absolutelayout.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_entry.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_activityindicator.png" />
+    <SharedImage Include="Resources\Images\toolbox\layout_flexlayout.png" />
+    <SharedImage Include="Resources\Images\toolbox\layout_contentview.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_progressbar.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_editor.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_searchbar.png" />
+    <SharedImage Include="Resources\Images\toolbox\cell_viewcell.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_slider.png" />
+    <SharedImage Include="Resources\Images\toolbox\cell_imagecell.png" />
+    <SharedImage Include="Resources\Images\toolbox\cell_switchcell.png" />
+    <SharedImage Include="Resources\Images\toolbox\layout_grid.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_stepper.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_image.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_tableview.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_boxview.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_datepicker.png" />
+    <SharedImage Include="Resources\Images\toolbox\cell_textcell.png" />
+    <SharedImage Include="Resources\Images\toolbox\layout_relativelayout.png" />
+    <SharedImage Include="Resources\Images\toolbox\layout_stacklayout.png" />
+    <SharedImage Include="Resources\Images\toolbox\cell_entrycell.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_button.png" />
+    <SharedImage Include="Resources\Images\toolbox\layout_frame.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_map.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_label.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_timepicker.png" />
+    <SharedImage Include="Resources\Images\toolbox\layout_scrollview.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_webview.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_picker.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_listview.png" />
+    <SharedImage Include="Resources\Images\toolbox\view_switch.png" />
+    <SharedImage Include="Resources\Images\on02.png" BaseSize="414,896" />
+    <SharedImage Include="Resources\Images\on03.png" BaseSize="414,896" />
+    <SharedImage Include="Resources\Images\on01.png" BaseSize="414,896" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Content\Common\FlyoutFooterTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Content\Common\FlyoutItemTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Content\Scenarios\PhotoGallery\IndexPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Content\Common\FlyoutFooterTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Content\Common\FlyoutHeaderTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Content\Common\FlyoutItemTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+  <Import Project="..\ApiConstants.targets" />
+</Project>

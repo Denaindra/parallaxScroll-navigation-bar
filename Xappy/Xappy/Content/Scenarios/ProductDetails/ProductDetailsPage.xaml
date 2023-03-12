@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Xappy"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:this="clr-namespace:Xappy.Content.Scenarios.ProductDetails"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:anim="clr-namespace:Xamanimation;assembly=Xamanimation" 
+    ios:Page.UseSafeArea="False"
+    mc:Ignorable="d"
+    BackgroundColor="#008000"
+
+    x:Class="Xappy.Content.Scenarios.ProductDetails.ProductDetailsPage">
+
+    <ContentPage.BindingContext>
+        <this:ProductDetailsViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <!-- ANIMATIONS -->
+        <anim:FadeToAnimation x:Key="FakeNavBarFadeIn" Target="{x:Reference FakeNavBar}" Opacity="0" Duration="500"/>
+        <anim:FadeToAnimation x:Key="FakeNavBarFadeOut" Target="{x:Reference FakeNavBar}" Opacity="1" Duration="500" />
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="88"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="360" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <CarouselView 
+                x:Name="Carousel"
+                ItemsSource="{Binding Images}"
+                Position="{Binding CurrentImage, Mode=TwoWay}"
+                Margin="0,-42,0,0"
+                BackgroundColor="#1d1d1d"
+                Grid.Row="0" HorizontalOptions="FillAndExpand"   
+                TranslationY="{Binding RelativeScrollY, 
+                                Source={x:Reference Scroll}, 
+                                Converter={StaticResource ScrollValueConverter}, 
+                                ConverterParameter='-5;0;200;false;0'}"
+                >
+                <CarouselView.Behaviors>
+                    <anim:AnimateProgressDouble 
+                        TargetProperty="VisualElement.Opacity"
+                        Progress="{Binding ScrollY, Source={x:Reference Scroll}}"
+                        Minimum="0"
+                        Maximum="180"
+                        From="1"
+                        To="0"/>        
+                </CarouselView.Behaviors>
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout 
+                        Orientation="Horizontal"
+                        SnapPointsType="Mandatory"
+                        SnapPointsAlignment="Start"/>
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Image 
+                            Source="{Binding .}" 
+                            WidthRequest="420"
+                            Aspect="AspectFill"/>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+         
+                <ScrollView Grid.RowSpan="2">
+                    <ScrollView.Behaviors>
+                        <anim:ScrollViewScrollBehavior x:Name="Scroll" />
+                    </ScrollView.Behaviors>
+                    <StackLayout HeightRequest="900"
+                        Margin="15,310,15,15"
+                        Spacing="20">
+                   <!--test flight-->
+                    </StackLayout>
+                </ScrollView>
+      
+        </Grid>
+
+               <!-- FAKE NAVIGATIONBAR bottom UI-->
+
+        <FlexLayout
+            Direction="Row"
+            Padding="15,42,15,15">
+            <ImageButton 
+                FlexLayout.Shrink="0" Command="{Binding BackCommand}">
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="FontAwesome"
+                        Glyph="{x:Static local:IconFont.ChevronLeft}"
+                        Color="{StaticResource White}" />
+                </ImageButton.Source>
+            </ImageButton>
+            <BoxView FlexLayout.Grow="1" />
+            <ImageButton FlexLayout.Shrink="0">
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="Fabric"
+                        Glyph="{x:Static local:FabIconFont.ShareiOS}"
+                        Color="{StaticResource White}" />
+                </ImageButton.Source>
+            </ImageButton>
+            <ImageButton Margin="15,0,0,0" FlexLayout.Shrink="0">
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="Fabric"
+                        Glyph="{x:Static local:FabIconFont.ShoppingCartSolid}"
+                        Color="{StaticResource White}" />
+                </ImageButton.Source>
+            </ImageButton>
+        </FlexLayout>
+
+        <!-- FAKE NAVIGATIONBAR Top UI-->
+        <FlexLayout PropertyChanging="FakeNavBar_PropertyChanging"
+            x:Name="FakeNavBar"
+            BackgroundColor="White"
+            Direction="Row"
+            Opacity="0"
+            Padding="15,42,15,15">
+                    <FlexLayout.Triggers>
+                        <DataTrigger TargetType="FlexLayout"
+                                Binding="{Binding ScrollY, 
+                                        Source={x:Reference Scroll}, 
+                                        Converter={StaticResource ComparisonConverter},
+                                        ConverterParameter='180;>'}"
+                                Value="true">
+                            <DataTrigger.EnterActions>
+                                <anim:BeginAnimation
+                                    Animation="{StaticResource FakeNavBarFadeIn}" />
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <anim:BeginAnimation
+                                    Animation="{StaticResource FakeNavBarFadeOut}" />
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </FlexLayout.Triggers>
+                    <ImageButton
+                FlexLayout.Shrink="0" Command="{Binding BackCommand}">
+                        <ImageButton.Source>
+                            <FontImageSource
+                        FontFamily="FontAwesome"
+                        Glyph="{x:Static local:IconFont.ChevronLeft}"
+                        Color="{StaticResource NeutralDark}" />
+                        </ImageButton.Source>
+                    </ImageButton>
+                    <Label
+                Text="" 
+                FontSize="18"
+                Margin="10,0"
+                VerticalOptions="Center"
+                TextColor="{StaticResource NeutralDark}"
+                LineBreakMode="TailTruncation"
+                FlexLayout.AlignSelf="Center"
+                FlexLayout.Grow="1" />
+                    <ImageButton
+                FlexLayout.Shrink="0">
+                        <ImageButton.Source>
+                            <FontImageSource
+                        FontFamily="Fabric"
+                        Glyph="{x:Static local:FabIconFont.ShareiOS}"
+                        Color="{StaticResource NeutralDark}" />
+                        </ImageButton.Source>
+                    </ImageButton>
+                    <ImageButton 
+                Margin="15,0,0,0" FlexLayout.Shrink="0">
+                        <ImageButton.Source>
+                            <FontImageSource
+                        FontFamily="Fabric"
+                        Glyph="{x:Static local:FabIconFont.ShoppingCartSolid}"
+                        Color="{StaticResource NeutralDark}" />
+                        </ImageButton.Source>
+                    </ImageButton>
+                </FlexLayout>
+
+    </Grid>
+</ContentPage>

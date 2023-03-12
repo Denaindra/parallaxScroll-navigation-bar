@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    Shell.TabBarIsVisible="{Binding AppModel.IsTabBarVisible}"
+    xmlns:blog="clr-namespace:Xappy.Content.Blog"
+    xmlns:dual="clr-namespace:Xamarin.Forms.DualScreen;assembly=Xamarin.Forms.DualScreen"
+    Style="{DynamicResource backgroundStyle}"
+    Title="Latest News"
+    x:Class="Xappy.Content.Blog.IndexPage">
+
+    <ContentPage.BindingContext>
+        <blog:BlogViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <dual:TwoPaneView
+            PanePriority="Pane1"
+            TallModeConfiguration="SinglePane"
+            WideModeConfiguration="LeftRight"
+            MinWideModeWidth="800"
+            Pane1Length="3*"
+            Pane2Length="1*">
+            <dual:TwoPaneView.Pane1>
+                <RefreshView
+                    Command="{Binding RefreshCommand}"
+                    IsRefreshing="{Binding IsRefreshing}"
+                    >
+                    <CollectionView
+                        ItemsSource="{Binding Items}"
+                        SelectionMode="None">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout
+                            Orientation="Vertical"
+                            Span="2" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate
+                            x:DataType="blog:BlogItem">
+                                <blog:BlogView>
+                                    <blog:BlogView.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding NavigationCommand, Source={
+                                    RelativeSource AncestorType={x:Type blog:BlogViewModel}
+                                }}"
+                                            CommandParameter="{Binding .}"/>
+                                    </blog:BlogView.GestureRecognizers>
+                                </blog:BlogView>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyView>
+                            
+                            <FlexLayout Padding="30"
+                                        Direction="Column"
+                                        JustifyContent="Center"
+                                        VerticalOptions="Fill"
+                                        xct:StateLayout.CurrentState="{Binding MainState}"
+                                        xct:StateLayout.AnimateStateChanges="True"
+                            >
+                                <xct:StateLayout.StateViews>
+                                    <xct:StateView StateKey="Loading">
+                                        <Label
+                                            Text="Loading..."
+                                            FontSize="48"
+                                            Margin="0,0,0,20"
+                                    />
+                                    </xct:StateView>
+                                </xct:StateLayout.StateViews>
+                                <Label
+                                    Text="Oops, we don't have any blogs to show. Try refreshing."
+                                    FontSize="24"
+                                    Margin="0,0,0,20"
+                                    />
+                                <Button Text="Refresh"
+                                    Command="{Binding RefreshCommand}"/>
+                                
+                            </FlexLayout>
+                        </CollectionView.EmptyView>
+                    </CollectionView>
+                </RefreshView>
+            </dual:TwoPaneView.Pane1>
+        </dual:TwoPaneView>
+
+    </ContentPage.Content>
+</ContentPage>
