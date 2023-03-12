@@ -535,15 +535,15 @@
         Color="White"
         Size="18"/>-->
 
-    <converters:TypeToIconConverter x:Key="TypeToIconConverter" />
+    <!--<converters:TypeToIconConverter x:Key="TypeToIconConverter" />
     <converters:DoubleToIntConverter x:Key="DoubleToIntConverter" />
     <converters:PropertyInfoBooleanValueConverter x:Key="PropertyInfoBooleanValueConverter" />
-    <converters:NullOrEmptyToBoolConverter x:Key="NullOrEmptyToBoolConverter" />
+    <converters:NullOrEmptyToBoolConverter x:Key="NullOrEmptyToBoolConverter" />-->
     <converters:ScrollValueConverter x:Key="ScrollValueConverter"/>
     <converters:ComparisonConverter x:Key="ComparisonConverter"/>
-    <converters:ScrollPositionConverter x:Key="ScrollPositionConverter"/>
+    <!--<converters:ScrollPositionConverter x:Key="ScrollPositionConverter"/>
     <converters:StringToColorResourceConverter x:Key="StringToColorResourceConverter"/>
     <converters:ResourceToHexStringConverter x:Key="ResourceToHexStringConverter"/>
     <converters:IndexToColorConverter x:Key="IndexToColorConverter"/>
-    <converters:InvertedBoolConverter x:Key="InvertedBoolConverter"/>
+    <converters:InvertedBoolConverter x:Key="InvertedBoolConverter"/>-->
 </ResourceDictionary>
