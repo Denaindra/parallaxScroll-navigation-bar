@@ -26,7 +26,7 @@ namespace Xappy.iOS.Renderers
                 if (((Page)Element).Title == "Onboarding")
                     return;
 
-                UpdateStatusBarColor();
+               // UpdateStatusBarColor(); 
             }
             catch(Exception ex)
             {

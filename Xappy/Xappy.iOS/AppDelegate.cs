@@ -6,7 +6,12 @@ using Lottie.Forms.Platforms.Ios;
 using Foundation;
 using UIKit;
 using Xamarin.Essentials;
+using System.Threading.Tasks;
+using Xamarin.Forms.PlatformConfiguration;
+using Xappy.Interface;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(Xappy.iOS.StatusBarServices))]
 namespace Xappy.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -35,5 +40,13 @@ namespace Xappy.iOS
         }
 
         
+    }
+
+    public class StatusBarServices : IStatusBarServices
+    {
+        public void UpdateStatusBarColour(bool darkStatusBarTint)
+        {
+            
+        }
     }
 }
