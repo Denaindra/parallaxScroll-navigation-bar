@@ -20,8 +20,8 @@
 
     <ContentPage.Resources>
         <!-- ANIMATIONS -->
-        <anim:FadeToAnimation x:Key="FakeNavBarFadeIn" Target="{x:Reference FakeNavBar}" Opacity="0" Duration="500"/>
-        <anim:FadeToAnimation x:Key="FakeNavBarFadeOut" Target="{x:Reference FakeNavBar}" Opacity="1" Duration="500" />
+        <anim:FadeToAnimation x:Key="FakeNavBarFadeIn" Target="{x:Reference FakeNavBar}" Opacity="0" />
+        <anim:FadeToAnimation x:Key="FakeNavBarFadeOut" Target="{x:Reference FakeNavBar}" Opacity="1" />
     </ContentPage.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -30,7 +30,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.RowSpan="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="360" />
+                <RowDefinition Height="260" />  <!--cheange image hight here (360)-->
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -44,16 +44,16 @@
                 TranslationY="{Binding RelativeScrollY, 
                                 Source={x:Reference Scroll}, 
                                 Converter={StaticResource ScrollValueConverter}, 
-                                ConverterParameter='-5;0;200;false;0'}"
-                >
+                                ConverterParameter='-5;0;100;false;0'}" >  <!--cheange transmission here (200)-->
+                
                 <CarouselView.Behaviors>
-                    <anim:AnimateProgressDouble 
+                 <anim:AnimateProgressDouble 
                         TargetProperty="VisualElement.Opacity"
                         Progress="{Binding ScrollY, Source={x:Reference Scroll}}"
                         Minimum="0"
-                        Maximum="180"
-                        From="1"
-                        To="0"/>        
+                        Maximum="50"
+                        From="10"
+                        To="0"/>    
                 </CarouselView.Behaviors>
                 <CarouselView.ItemsLayout>
                     <LinearItemsLayout 
@@ -120,7 +120,7 @@
         <!-- FAKE NAVIGATIONBAR Top UI-->
         <FlexLayout PropertyChanging="FakeNavBar_PropertyChanging"
             x:Name="FakeNavBar"
-            BackgroundColor="White"
+          
             Direction="Row"
             Opacity="0"
             Padding="15,42,15,15">
